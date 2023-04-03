@@ -155,7 +155,7 @@ public class ActionEngine {
 
 	
 	
-	public synchronized void logEventToReport(WebDriver d, String status, String description) throws Exception {
+	public void logEventToReport(WebDriver d, String status, String description) throws Exception {
 		try {
 			if (status.equalsIgnoreCase("pass")) {
 				ExtentFactory.getInstance().getExtent().log(Status.PASS,
@@ -204,7 +204,7 @@ public void waitForElement(WebElement element , int i) {
 	wait.until(ExpectedConditions.visibilityOf(element));
 }
 
-protected boolean isElementPresent(WebElement element) throws Exception {
+public boolean isElementPresent(WebElement element) throws Exception {
 	boolean flag = false;
 	try {
 		

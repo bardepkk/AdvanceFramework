@@ -78,3 +78,8 @@
 ************** Execution Started : loginTest1**************
 
 [INFO ] 2023-04-03 16:28:42.242 - Test.newTest:loginTest1 15==>  Test1
+[INFO ] 2023-04-04 00:21:16.687 - com.testBase.MyLogger:startTestCase 17==>  
+
+************** Execution Started : loginTest1**************
+
+[INFO ] 2023-04-04 00:21:16.731 - Test.newTest:loginTest1 15==>  Test1
