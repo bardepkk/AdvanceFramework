@@ -1,37 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-03T16:27:52 IST" name="Demo Web App test suite" finished-at="2023-04-03T16:28:14 IST" duration-ms="22356">
+  <suite started-at="2023-04-05T00:59:48 IST" name="Demo Web App test suite" finished-at="2023-04-05T01:00:58 IST" duration-ms="70543">
     <groups>
     </groups>
-    <test started-at="2023-04-03T16:27:52 IST" name="logintest" finished-at="2023-04-03T16:28:14 IST" duration-ms="22356">
+    <test started-at="2023-04-05T00:59:48 IST" name="REGISTER_USER_TEST" finished-at="2023-04-05T01:00:58 IST" duration-ms="70543">
       <class name="Test.newTest">
-        <test-method is-config="true" signature="LaunchApplication()[pri:0, instance:Test.newTest@3d51f06e]" started-at="2023-04-03T16:27:52 IST" name="LaunchApplication" finished-at="2023-04-03T16:27:58 IST" duration-ms="5589" status="PASS">
+        <test-method is-config="true" signature="LaunchApplication()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T00:59:48 IST" name="LaunchApplication" finished-at="2023-04-05T00:59:55 IST" duration-ms="7076" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LaunchApplication -->
-        <test-method signature="loginTest1()[pri:0, instance:Test.newTest@3d51f06e]" started-at="2023-04-03T16:27:58 IST" name="loginTest1" finished-at="2023-04-03T16:28:04 IST" duration-ms="6170" status="PASS">
+        <test-method signature="login3()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T00:59:55 IST" name="login3" finished-at="2023-04-05T01:00:16 IST" duration-ms="20934" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at Test.newTest.login3(newTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:425)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:68)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:833)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest1 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Test.newTest@3d51f06e]" started-at="2023-04-03T16:28:04 IST" name="tearDown" finished-at="2023-04-03T16:28:04 IST" duration-ms="147" status="PASS">
+        </test-method> <!-- login3 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T01:00:16 IST" name="tearDown" finished-at="2023-04-05T01:00:16 IST" duration-ms="208" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="LaunchApplication()[pri:0, instance:Test.newTest@3d51f06e]" started-at="2023-04-03T16:28:04 IST" name="LaunchApplication" finished-at="2023-04-03T16:28:09 IST" duration-ms="4762" status="PASS">
+        <test-method is-config="true" signature="LaunchApplication()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T01:00:16 IST" name="LaunchApplication" finished-at="2023-04-05T01:00:21 IST" duration-ms="4865" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LaunchApplication -->
-        <test-method signature="loginTest2()[pri:0, instance:Test.newTest@3d51f06e]" started-at="2023-04-03T16:28:09 IST" name="loginTest2" finished-at="2023-04-03T16:28:14 IST" duration-ms="5054" status="PASS">
+        <test-method signature="loginTest1()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T01:00:21 IST" name="loginTest1" finished-at="2023-04-05T01:00:37 IST" duration-ms="16105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T01:00:37 IST" name="tearDown" finished-at="2023-04-05T01:00:38 IST" duration-ms="182" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="LaunchApplication()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T01:00:38 IST" name="LaunchApplication" finished-at="2023-04-05T01:00:42 IST" duration-ms="4801" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LaunchApplication -->
+        <test-method signature="loginTest2()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T01:00:42 IST" name="loginTest2" finished-at="2023-04-05T01:00:58 IST" duration-ms="15542" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest2 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Test.newTest@3d51f06e]" started-at="2023-04-03T16:28:14 IST" name="tearDown" finished-at="2023-04-03T16:28:14 IST" duration-ms="155" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Test.newTest@7ed7259e]" started-at="2023-04-05T01:00:58 IST" name="tearDown" finished-at="2023-04-05T01:00:58 IST" duration-ms="146" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Test.newTest -->
-    </test> <!-- logintest -->
+    </test> <!-- REGISTER_USER_TEST -->
   </suite> <!-- Demo Web App test suite -->
 </testng-results>

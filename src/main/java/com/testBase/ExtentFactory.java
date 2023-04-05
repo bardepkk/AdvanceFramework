@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.Markup;
 
 /**
  * @author: pranay barde
@@ -85,6 +86,49 @@ public class ExtentFactory {
 	}
 
 
+	public void logEventToReport(WebDriver d, String status, String description) throws Exception {
+		try {
+			if (status.equalsIgnoreCase("pass")) {
+				ExtentFactory.getInstance().getExtent().log(Status.PASS,
+						"<b><span style='color:green'>" + StringUtils.capitalize(description) + "</span></b>");
+			} else if (status.equalsIgnoreCase("fail")) {
+				ExtentFactory.getInstance().getExtent().log(Status.FAIL,
+						"<b><span style='color:red'>" + StringUtils.capitalize(description) + "</span></b>");
+				ExtentFactory.getInstance().getExtent().log(Status.INFO ,"<b><span style='color:orange'>"+
+						  ExtentFactory.getInstance().getExtent().addScreenCaptureFromPath(addScreenShot())+ "</span></b>");
+			} else if (status.equalsIgnoreCase("WARNING")) {
+				ExtentFactory.getInstance().getExtent().log(Status.WARNING,"<b><span style='color:pink'>"+ description+"</span></b>");
+				
+				ExtentFactory.getInstance().getExtent().log(Status.INFO ,
+						(Markup) ExtentFactory.getInstance().getExtent().addScreenCaptureFromPath(addScreenShot()));
+
+
+			}
+		} catch (Exception e) {
+			System.out.println("error block report");
+			ExtentFactory.getInstance().getExtent().log(Status.INFO, e.getMessage());
+			ExtentFactory.getInstance().getExtent().addScreenCaptureFromPath(addScreenShot(), "Test case INFO screenshot");
+
+			e.printStackTrace();
+		}
+	}
+public String addScreenShot()
+{
+	File src = ((TakesScreenshot)DriverFactory.getInstance().getDriver()).getScreenshotAs(OutputType.FILE);
+	SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyy HH-mm-ss");
+	Date date = new Date();
+	String actualDate = format.format(date);
 	
+	String screenshotPath = System.getProperty("user.dir")+
+			"/Reports/Screenshots/"+actualDate+".png";
+	File dest = new File(screenshotPath);
+	
+	try {
+		FileUtils.copyFile(src, dest);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}	
+	return  dest.toString();
+}
 
 }

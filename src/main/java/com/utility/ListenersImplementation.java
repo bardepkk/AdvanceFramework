@@ -36,12 +36,12 @@ public class ListenersImplementation implements ITestListener{
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		ExtentFactory.getInstance().getExtent().log(Status.PASS, "Test Case: "+result.getMethod().getMethodName()+ " is Passed.");
+		ExtentFactory.getInstance().getExtent().log(Status.PASS,"<b>"+ "Test Case: "+result.getMethod().getMethodName()+ " is Passed.</b>");
 		ExtentFactory.getInstance().removeExtentObject();
 	}
 
 	public void onTestFailure(ITestResult result) {
-		ExtentFactory.getInstance().getExtent().log(Status.FAIL, "Test Case: "+result.getMethod().getMethodName()+ " is Failed.");
+		ExtentFactory.getInstance().getExtent().log(Status.FAIL, "<b> Test Case: "+result.getMethod().getMethodName()+ " is Failed.</b>");
 		ExtentFactory.getInstance().getExtent().log(Status.FAIL, result.getThrowable());
 		
 		//add screenshot for failed test.
@@ -64,7 +64,7 @@ public class ListenersImplementation implements ITestListener{
 }
 
 	public void onTestSkipped(ITestResult result) {
-		ExtentFactory.getInstance().getExtent().log(Status.SKIP, "Test Case: "+result.getMethod().getMethodName()+ " is skipped.");
+		ExtentFactory.getInstance().getExtent().log(Status.SKIP, "<b> Test Case: "+result.getMethod().getMethodName()+ " is skipped.</b>");
 		ExtentFactory.getInstance().removeExtentObject();
 	}
 

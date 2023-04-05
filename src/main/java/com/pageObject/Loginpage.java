@@ -7,8 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.Status;
+import com.testBase.DriverFactory;
 import com.testBase.ExtentFactory;
 import com.utility.ActionEngine;
 
@@ -59,6 +61,9 @@ public class Loginpage extends ActionEngine {
 	@FindBy(xpath = "//input[@value='Log In']")
 	private WebElement login;
 
+	@FindBy(xpath = "//input[@value='Lo']")
+	private WebElement log;
+	
 	public void selectragister() {
 		ragister.click();
 	}
@@ -154,7 +159,7 @@ public class Loginpage extends ActionEngine {
 		Thread.sleep(1000);
 		click_custom(proced,"Proced");
 		waitForElement(message__sucess, 20);
-		getText_custom(message__sucess, "sucessful Registeration");
+		
 		assertEqualsString_custom("Welcome "+ uName +" Your account was created successfully. You are now logged in.",getText_custom(message__sucess, "sucessful Registeration"),"sucess message");
 	//	Your account was created successfully. You are now logged in.
 		ExtentFactory.getInstance().getExtent().log(Status.PASS, "<b><span style='color:MidnightBlue'></span></b>");
@@ -177,17 +182,24 @@ public class Loginpage extends ActionEngine {
 //	proced.click();
 	}
 
-	public void enteruserName() {
+	public Loginpage enteruserName() throws Exception {
 //		WebDriverWait wait=new WebDriverWait(20,TimeUnit.SECONDS);
 //		wait.until("Exception".visibilityOfElementLocated(true),"userName1");
-		userName1.sendKeys("Raju");
+		//userName1.sendKeys("Raju");
+		sendKeys_custom(userName1,"userName","Raju");
+		return new Loginpage(DriverFactory.getInstance().getDriver());
 	}
 
-	public void enterPassword() {
-		password1.sendKeys("Raju123");
+	public Loginpage enterPassword() throws Exception {
+	//	password1.sendKeys("Raju123");
+		sendKeys_custom(password1,"password","Raju123");
+		return new Loginpage(DriverFactory.getInstance().getDriver());
 	}
 
-	public void enterlogin() {
-		login.click();
+	public Loginpage enterlogin() {
+		//login.click();
+		//click_custom(log,"login");
+		Assert.assertEquals(click_customs(log,"login"), true);
+		return new Loginpage(DriverFactory.getInstance().getDriver());
 	}
 }

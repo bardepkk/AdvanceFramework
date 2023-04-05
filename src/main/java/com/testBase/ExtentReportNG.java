@@ -30,7 +30,7 @@ public class ExtentReportNG {
 		 extent.attachReporter(sparkReport);
 		
 		sparkReport.config().setDocumentTitle("DocumentTitle");
-		sparkReport.config().setTheme(Theme.STANDARD);
+		sparkReport.config().setTheme(Theme.DARK);
 		sparkReport.config().setReportName("ReportName");
 		
 		extent.setSystemInfo("Executed on Environment: ", PropertiesOperations.getPropertyValueByKey("url"));

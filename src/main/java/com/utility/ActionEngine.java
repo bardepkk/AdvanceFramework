@@ -33,11 +33,11 @@ public class ActionEngine {
 	     isElementPresent_custom(element, fieldName);
 			element.sendKeys(valueToBeSent);
 			//log success message in exgent report
-			ExtentFactory.getInstance().getExtent().log(Status.PASS, "<b><span style='color:MidnightBlue'>" + fieldName+"==> Ented value as: "+valueToBeSent+ "</span></b>");
+			ExtentFactory.getInstance().getExtent().log(Status.PASS,"<b>["+element+"]"+ "<span style='color:blue'>[" + fieldName+"]==> Ented value as: "+valueToBeSent+ "</span></b>");
 		} catch (Exception e) {
 			//log failure in extent
 		//logEventToReport(DriverFactory.getInstance().getDriver(), "FAIL", "<b><span style='color:red'>"+"Value enter in field: "+fieldName + " is failed due to exception: "+e+ "</span></b>");
-		ExtentFactory.getInstance().getExtent().log(Status.FAIL, "<b><span style='color:red'>"+"Value enter in field: "+fieldName + " is failed due to exception: "+e+ "</span></b>");
+		ExtentFactory.getInstance().getExtent().log(Status.FAIL,"<b>["+element+"]"+ "<span style='color:red'>"+"Value enter in field: ["+fieldName + "] is failed due to exception: "+e+ "</span></b>");
 		}
 	}
 
@@ -49,24 +49,40 @@ public class ActionEngine {
 		
 			element.click();
 			//log success message in exgent report
-			ExtentFactory.getInstance().getExtent().log(Status.PASS,"<b><span style='color:MidnightBlue'>"+ fieldName+"==> Clicked Successfully! "+ "</span></b>");
+			ExtentFactory.getInstance().getExtent().log(Status.PASS,"<b>["+element+"]"+"<span style='color:MidnightBlue'>"+ fieldName+"==> Clicked Successfully! "+ "</span></b>");
 		//	flag = true;
 		} catch (Exception e) {
 			//log failure in extent
-			ExtentFactory.getInstance().getExtent().log(Status.FAIL,"<b><span style='color:red'>"+"Unable to click on field: " +fieldName +" due to exception: "+e+ "</span></b>");
-		//	flag = false;
+			ExtentFactory.getInstance().getExtent().log(Status.FAIL,"<b>["+element+"]"+"<span style='color:red'>"+"Unable to click on field: " +fieldName +" due to exception: "+e+ "</span></b>");
+		
+			//	flag = false;
 		}
 	}
-
+	public boolean click_customs(WebElement element, String fieldName) {
+			boolean flag = false;
+			try {
+			
+				element.click();
+				//log success message in exgent report
+				ExtentFactory.getInstance().getExtent().log(Status.PASS,"<b>["+element+"]"+"<span style='color:MidnightBlue'>"+ fieldName+"==> Clicked Successfully! "+ "</span></b>");
+				flag = true;
+			} catch (Exception e) {
+				//log failure in extent
+				ExtentFactory.getInstance().getExtent().log(Status.FAIL,"<b>["+element+"]"+"<span style='color:red'>"+"Unable to click on field: " +fieldName +" due to exception: "+e+ "</span></b>");
+			
+					flag = false;
+			}
+			return flag;
+		}
 
 	//clear data from field
 	public void clear_custom(WebElement element,String fieldName) {
 		try {
 			element.clear();
 			Thread.sleep(250);
-			ExtentFactory.getInstance().getExtent().log(Status.PASS, fieldName+"==> Data Cleared Successfully! ");
+			ExtentFactory.getInstance().getExtent().log(Status.PASS,"["+element+"]"+ fieldName+"==> Data Cleared Successfully! ");
 		} catch (Exception e) {
-			ExtentFactory.getInstance().getExtent().log(Status.FAIL, "Unable to clear Data on field: " +fieldName +" due to exception: "+e);
+			ExtentFactory.getInstance().getExtent().log(Status.FAIL, "["+element+"]"+"Unable to clear Data on field: " +fieldName +" due to exception: "+e);
 
 		} 
 	}
@@ -78,10 +94,10 @@ public class ActionEngine {
 			executor.executeScript("arguments[0].scrollIntoView(true);", element);
 			Actions actions = new Actions(DriverFactory.getInstance().getDriver());		
 			actions.moveToElement(element).build().perform();
-			ExtentFactory.getInstance().getExtent().log(Status.PASS, fieldName+"==> Mouse hovered Successfully! ");
+			ExtentFactory.getInstance().getExtent().log(Status.PASS,"["+element+"]"+ fieldName+"==> Mouse hovered Successfully! ");
 			Thread.sleep(1000);
 		}catch(Exception e){
-			ExtentFactory.getInstance().getExtent().log(Status.FAIL, "Unable to hover mouse on field: " +fieldName +" due to exception: "+e);
+			ExtentFactory.getInstance().getExtent().log(Status.FAIL, "["+element+"]"+"Unable to hover mouse on field: " +fieldName +" due to exception: "+e);
 
 		}
 	}
@@ -92,10 +108,10 @@ public class ActionEngine {
 		boolean flag = false;
 		try {
 			flag = element.isDisplayed();
-			ExtentFactory.getInstance().getExtent().log(Status.PASS, fieldName+"==> Presence of field is: "+ flag);
+			ExtentFactory.getInstance().getExtent().log(Status.PASS,"<b>["+element+"]"+"<span style='color:green'>-[" + fieldName+"]==> Presence of field is: "+ flag+"</span></b>");
 			return flag;
 		} catch (Exception e) {
-			ExtentFactory.getInstance().getExtent().log(Status.FAIL, "Checking for presence of field: " +fieldName +" not tested due to exception: "+e);
+			ExtentFactory.getInstance().getExtent().log(Status.FAIL,"<b>["+element+"]"+"<b><span style='color:red'>"+ "Checking for presence of field:[ " +fieldName +"] not tested due to exception: "+e+"</span></b>");
 			return flag;
 		}
 	}
@@ -129,9 +145,9 @@ public class ActionEngine {
 		     String actual = actualValue.replaceAll("\\n"," ");
 		Assert.assertEquals(expected.trim(),actual.trim());
 			if(actual.equals(expected)) {
-				ExtentFactory.getInstance().getExtent().log(Status.PASS, "String Assertion is successful on field "+ locatorName + " Expected value was: "+ expected + " actual value is: "+actual);
+				ExtentFactory.getInstance().getExtent().log(Status.PASS, "<b><span style='color:green'>String Assertion is successful on field "+ locatorName + " EXPECTED value was: <<< "+ expected + " ACTUAL IS <<: "+actual+"</span></b>");
 			}else {
-				ExtentFactory.getInstance().getExtent().log(Status.FAIL, "String Assertion FAILED on field "+ locatorName + " Expected value was: "+ expected + " actual value is: "+actual);
+				ExtentFactory.getInstance().getExtent().log(Status.FAIL, "<b><span style='color:red'>String Assertion FAILED on field "+ locatorName + " EXPECTED value was:<<< "+ expected + " ACTUAL IS: <<"+actual+"</span></b>");
 				Assert.assertTrue(false);
 			}
 		} catch (Exception e) {
