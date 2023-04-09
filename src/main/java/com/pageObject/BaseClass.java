@@ -1,6 +1,5 @@
 package com.pageObject;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -29,10 +28,11 @@ public class BaseClass {
 		if(browser.equals("edge"))
 			{driver = new EdgeDriver();}
 			
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		driver.manage().window().maximize();
 		driver.get("https://parabank.parasoft.com/parabank/index.htm");
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	
 		   
 		}
 	    

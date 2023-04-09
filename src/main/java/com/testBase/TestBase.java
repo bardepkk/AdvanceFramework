@@ -1,5 +1,6 @@
 package com.testBase;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,7 +17,7 @@ public class TestBase {
 		DriverFactory.getInstance().setDriver(bf.createBrowserInstance(browser));
 
 		DriverFactory.getInstance().getDriver().manage().window().maximize();
-		DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	//	DriverFactory.getInstance().getDriver().navigate().to(url);
 		DriverFactory.getInstance().getDriver().navigate().to("https://parabank.parasoft.com/parabank/index.htm");
 	}

@@ -1,8 +1,5 @@
 package com.testBase;
 
-import static org.openqa.selenium.remote.CapabilityType.BROWSER_VERSION;
-import static org.openqa.selenium.remote.CapabilityType.PLATFORM_NAME;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
